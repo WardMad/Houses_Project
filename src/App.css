@@ -9,8 +9,8 @@ right:250px;
   height: 15vmin;
 }
 textarea{
-  height:300px;
-  width:300px;
+  /* height:300px;
+  width:300px; */
   background-color: rgb(76, 86, 95);
 }
 .App-header {
@@ -24,9 +24,6 @@ textarea{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +32,22 @@ textarea{
   to {
     transform: rotate(360deg);
   }
+}
+table, th, td {
+  border: 1px solid whitesmoke;
+  /* border-collapse: collapse; */
+}
+th, td {
+  padding: 10px;
+  text-align: center;
+  font-size:17px ;
+}
+
+th{
+  color: #49b0cc;
+  font-size: 19px;
+  font-family:  fantasy;
+}
+.graph{
+background-color: rgb(255, 255, 255);
 }
