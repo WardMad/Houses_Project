@@ -14,27 +14,33 @@ class HouseFromDB extends Component {
   componentDidMount() {
     fetch("/price")
       .then(res => res.json())
-      .then(data => this.setState({ data: [data] }));
+      .then(data => this.setState({ data: data.results }));
   }
+
   render() {
     let x = this.state.data;
-
-    const eList = x.map((item, index) => (
-      <tbody key={index}>
-        <tr>
-          <th>Price</th>
-        </tr>
-        <tr>
-          <td>{item.data}</td>
-        </tr>
-      </tbody>
+// console.log(x)
+    const houseList = x.map((item, index) => (
+        <tr key={index}>
+          <td>{item.value}</td>
+          <td>{item.address}</td>
+          <td>{item.city}</td>
+          <td>{item.rooms}</td>
+          
+      
+       </tr>
+     
     ));
-    console.log(eList);
+   
+   
     return (
       <div>
         <h3>House Info from db</h3>
 
-        <table>{eList}</table>
+           <table> 
+             <tbody>{houseList}</tbody>
+           </table>
+     
       </div>
     );
   }

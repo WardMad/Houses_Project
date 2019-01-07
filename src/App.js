@@ -4,6 +4,7 @@ import logo from "./logo.svg";
 import { inject, observer } from "mobx-react";
 import Chart from "./Components/Chart";
 import HouseFromDB from "./Components/HouseFromDB";
+import Filter from "./Components/Filter"
 
 @inject("SomeStore")
 @observer
@@ -45,15 +46,16 @@ class App extends Component {
     const HouseList = SomeStore.jitems.map((item, index) => (
       <tbody key={index}>
         <tr>
-          <th>ID</th>
+          
           <th>Date</th>
           <th>Price</th>
           <th>Area</th>
+          <th>Address</th>
         </tr>
         <tr>
-          <td>{Math.floor(Math.random() * 6667) + 1}</td>
-          <td>{refactorDate(item.added.replace(/\D/g, ""))}</td>
-          <td> {item.price.Amount.replace(/\D/g, "")}</td>
+          
+          <td>{refactorDate(item.market_date.replace(/\D/g, ""))}</td>
+          <td> {item.price.value.replace(/\D/g, "")}</td>
           <td>{item.size.gross_m2.replace(/\D/g, "")}</td>
           <td>{item.location.address}</td>
         </tr>
@@ -63,22 +65,24 @@ class App extends Component {
     return (
       <div className="App">
         <div className="graph">
-          {" "}
-          <Chart />{" "}
+          
+          <Chart />
         </div>
 
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      
           <div>
             <form onSubmit={e => this.handleSubmit(e)}>
-              <input
+              {/* <input
                 placeholder="search City"
                 ref={input => (this.xerr = input)}
-              />
+              /> */}
               <label>
                 {/* EssayJSON:
                 <textarea onChange={this.handleChange} /> */}
               </label>
+<Filter/>
+
               <HouseFromDB />
               <button type="submit"> Submit</button>
 

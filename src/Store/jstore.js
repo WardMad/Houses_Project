@@ -15,12 +15,12 @@ class SomeStore extends React.Component {
     var validInfo = data.filter(el =>
         el.title !== "" &&
         el.location.address !== "" &&
-        Number(el.coordinates.lat) !== "" &&
-        Number(el.coordinates.lng) !== "" &&
+        Number(el.location.coordinates.lat) !== "" &&
+        Number(el.location.coordinates.lng) !== "" &&
         Number(el.size.parcel_m2) !== "" &&
         el.size.gross_m2 !== "" &&
         Number(el.size.rooms) !== "" &&
-        el.price.Amount !== ""
+        el.price.value !== ""
     );
 
     return validInfo;
@@ -31,7 +31,7 @@ class SomeStore extends React.Component {
       let houseRows = await this.fetchInfo();
       let filteredData = await this.normalize(houseRows);
 
-    //   console.log(filteredData);
+      console.log(filteredData);
       runInAction(() => {
         this.jitems = filteredData;
       });
@@ -44,7 +44,7 @@ class SomeStore extends React.Component {
 
   fetchInfo() {
     return fetch(
-      "https://api.apify.com/v1/execs/4mTjBssuANkip9eHy/results?format=json&simplified=1"
+      "https://api.apify.com/v1/execs/8MktFpogrSBzMzwLW/results?format=json&simplified=1"
     ).then(response => response.json());
   }
 }

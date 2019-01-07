@@ -38,15 +38,15 @@ class Chart extends Component {
     }
 
     const chartPrice = SomeStore.jitems.map((item, index) => {
-      let averige = item.price.Amount / 2;
+      let averige = item.price.value / 2;
       // console.log(averige)
-      return item.price.Amount.replace(/\D/g, "");
+      return item.price.value.replace(/\D/g, "");
     });
 
     const chartDay = SomeStore.jitems.map((item, index) => {
-      let numb = parseInt(item.price.Amount);
+      let numb = parseInt(item.price.value);
 
-      let day = [item.added.replace(/\D/g, "")];
+      let day = [item.market_date.replace(/\D/g, "")];
 
       let dd = refactorDate(day).map((it, i) => {
         return it;

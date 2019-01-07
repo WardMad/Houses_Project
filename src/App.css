@@ -41,6 +41,8 @@ th, td {
   padding: 10px;
   text-align: center;
   font-size:17px ;
+
+
 }
 
 th{
@@ -51,3 +53,16 @@ th{
 .graph{
 background-color: rgb(255, 255, 255);
 }
+
+.select{
+  width:150px;
+  height:30px;
+  font-size: 17px;
+}
+.f{
+  
+margin-right: 400px;
+ padding:30px;
+ border: 2px solid blue;
+  
+  }

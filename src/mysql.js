@@ -20,7 +20,7 @@ dbConnection.connect();
 app.get("/price", (req, res) => {
   try {
     dbConnection.query(
-      "select price, address, city, rooms from house_mouse",
+      "select value, address, city, rooms from evgeni",
       //   [],
       (err, results, fields) => {
         if (err) {
@@ -28,13 +28,8 @@ app.get("/price", (req, res) => {
           return;
         }
 
-        let data = results.map((el, i) => {
-          let arr = [el.address, el.city];
-          return arr;
-        });
-        console.log(data);
         res.json({
-          data
+       results
         });
         console.log('status "ok" ');
       }
@@ -52,7 +47,7 @@ app.get("/searchCity", (req, res) => {
   }
   try {
     dbConnection.query(
-      `select * from house_mouse ${cityWhere};`,
+      `select * from new_schema ${cityWhere};`,
       [],
       (err, results, fields) => {
         if (err) {
